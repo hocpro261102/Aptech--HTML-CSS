@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-table</title>
+</head>
+<body>
+    <form action="http://tranvanhung.fitstu.net/download/front-end/accp2108-frontEnd/test.php"
+            method="POST"
+            enctype="multipart/form-data"
+
+    >
+
+    <table border="1">
+        <tr>
+            <td> Email: </td>
+            <td><input type="email" name="Email"></td>
+        </tr>
+        <tr>
+            <td>Mat khau: </td>
+            <td><input type="password" name="Matkhau"></td>
+        </tr>
+        <tr>
+            <td>Ten: </td>
+            <td><input type="text" name="Ten"></td>
+        </tr>
+        <tr>
+            <td>Gioi tinh: </td>
+            <td><input type="radio" name="Gioitinh" > Nam
+                <input type="radio"name="Gioitinh" > Nu</td>
+        </tr>
+        <tr>
+            <td>So thich: </td>
+            <td><input type="checkbox" name="sothich"> The thao
+                <input type="checkbox" name="sothich"> Sach
+                <input type="checkbox" name="sothich"> Du Lich</td>
+        </tr>
+        <tr>
+            <td>Hinh anh: </td>
+            <td><input type="file" name="hinh"></td>
+        </tr>
+        <tr>
+            <td>Mo ta: </td>
+            <td><textarea name="mota" id="" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td>Tinh thanh: </td>
+            <td><select name="" id="">
+                <option value="">---Chon Tinh Thanh---</option>
+                <option value="hcm">Ho Chi Minh</option>
+                <option value="hn">Ha Noi</option>
+                <option value="dn">Dong Nai</option>
+            </select></td>
+        </tr>
+        <tr >
+            <td colspan="2" align="center" ><input type="submit" value="Dang Ky">
+                <input type="reset" value="Xoa">
+                <input type="button" value="Button"></td>
+            <td></td>
+        </tr>
+    </table>
+        
+        
+    </form>
+</body>
+</html>
