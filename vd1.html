@@ -11,26 +11,29 @@
             method="POST"
             enctype="multipart/form-data"
     >
-        Email: <input type="email" name="Email"> <br>
-        Mat khau: <input type="password" name="Matkhau"> <br>
-        Ten: <input type="text" name="Ten"> <br>
-        Gioi tinh: <input type="radio" name="Gioitinh" > Nam
+        <fieldset>
+            <legend align="center">Đăng Ký</legend>
+            Email: <input type="email" name="Email" required placeholder="Nhap email"> <br>
+            Mat khau: <input type="password" name="Matkhau" required placeholder="Nhap mat khau nhieu hon 6 ky tu"> <br>
+            Ten: <input type="text" name="Ten" required placeholder="Nhap ten"> <br>
+            Gioi tinh: <input type="radio" name="Gioitinh" checked> Nam
                     <input type="radio"name="Gioitinh" > Nu <br>    
-        So thich: <input type="checkbox" name="sothich"> The thao
+            So thich: <input type="checkbox" name="sothich"> The thao
                     <input type="checkbox" name="sothich"> Sach
                     <input type="checkbox" name="sothich"> Du Lich <br>
-        Hinh anh: <input type="file" name="hinh"> <br>
-        Mo ta: <textarea name="mota" id="" cols="30" rows="10"></textarea> <br>
-        Tinh thanh: <select name="" id="">
+            Hinh anh: <input type="file" name="hinh"> <br>
+            Mo ta: <textarea name="mota" id="" cols="30" rows="10"></textarea> <br>
+            Tinh thanh: <select name="" id="">
             <option value="">---Chon Tinh Thanh---</option>
             <option value="hcm">Ho Chi Minh</option>
             <option value="hn">Ha Noi</option>
             <option value="dn">Dong Nai</option>
 
-        </select> <br>
-        <input type="submit" value="Dang Ky">
-        <input type="reset" value="Xoa">
-        <input type="button" value="Button">
+            </select> <br>
+            <input type="submit" value="Dang Ky">
+            <input type="reset" value="Xoa">
+            <input type="button" value="Button">
+        </fieldset>
     </form>
 </body>
 </html>
