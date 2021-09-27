@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>selector css</title>
+
+    <style>
+        #id1{background-color: aqua;}
+        #id1 > a{font-size: 40px;}
+        #id1 > .a1{background-color: royalblue;}
+        #id1 a:hover{background-color: rosybrown;}
+    </style>
 </head>
 <body>
-    <form action="http://tranvanhung.fitstu.net/download/front-end/accp2108-frontEnd/test.php"
-    method="GET"
-    
-    >
-        <input type="text" name="Ten" placeholder="Nhap Ten Can Tim">
-        <input type="text" name="Mausac" placeholder="Nhap Mau Sac">
-        <input type="submit" value="Tim Kiem">
-    </form>
+    <div id="id1">
+        <a href="">alo1</a>
+        <a href="">alo2</a>
+        <h1>header1</h1>
+        <p><a href="">link1</a>
+            <a href="" id=a1>bbbb</a>
+        </p>
+    </div>
+    <div id="id2">
+        <div class="c1"></div>
+        <div class="c1"></div>
+        <div class="c1"></div>
+    </div>
 </body>
 </html>
