@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+#menu{
+    background-color: #428BCA;
+    height: 40px;
+}
+
+#menu-1{
+    color: white;
+    padding: 10px 15%;
+    
+}
+
+a{
+    text-decoration: none;
+    color: #4781D9  ;
+}
+
+#head-1{
+    font-size: 50px;
+}
+
+.khoangcach{
+    margin: 0 10%;
+}
+
+#left{
+    width: 50%;
+    display: inline-block;
+}
+
+
+#tren-left-1{
+    font-size: 40px;
+}
+
+.chumo{
+    color: #919294;
+}
+
+#tren-3{
+    padding-top: 20px;
+}
+
+#duoi{
+    padding-top: 40px;
+}
+
+#duoi-left-1{
+    font-size: 40px;
+}
+
+#right{
+    width: 12%;
+    display: inline-block;
+    
+
+}
+
+#head-right{
+    background-color: #c2c2c2;
+    padding: 10px;
+    
+}
+
+#content-right{
+    padding: 10px;
+}
+
+#footer-right{
+    padding: 10px;
+}
+
+#right{
+    margin: 0 8%;
+}
+
+#right-1{
+    font-size: 20px;
+    font-weight: 550;
+}
+
+#right-2{
+    padding: 5px 0;
+}
+
+#footer{
+    font-size: 25px;
+    text-align: center;
+    padding-top: 30px;
+}
