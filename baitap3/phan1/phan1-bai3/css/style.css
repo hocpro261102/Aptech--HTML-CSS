@@ -36,7 +36,7 @@
 #phu {
     color: white;
     position: absolute;
-    list-style: none;
+    list-style-type: none;
     width: 302.59px;
     margin-top: 16px;
     background-color: #008083;
@@ -53,4 +53,21 @@
 #phu li:hover {
     cursor: pointer;
     background-color: #008001;
+}
+
+#phu-1 {
+    position: absolute;
+    background-color: #008083;
+    margin-left: 303px;
+    width: 303px;
+    margin-top: -35.2px;
+    display: none;
+}
+
+#chinh-1 {
+    position: relative;
+}
+
+#chinh-1:hover #phu-1 {
+    display: block;
 }
