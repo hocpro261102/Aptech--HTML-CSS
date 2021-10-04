@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinh tong</title>
+
+    <script>
+        function F() {
+            var v1 = document.getElementById('x').value;
+            var v2 = document.frm.y.value;
+            console.log(v1, v2);
+            var v3 = v1 * 1 + v2 * 1;
+            document.getElementById('ketqua').value = v3
+
+        }
+    </script>
+</head>
+
+<body>
+    <form name="frm" action="">
+        x <input type="number" id="x"> y <input type="text" name="y"> ket qua <input type="text" id="ketqua">
+        <br>
+        <input type="button" value="tinh tong" onclick=" F()">
+    </form>
+</body>
+
+</html>

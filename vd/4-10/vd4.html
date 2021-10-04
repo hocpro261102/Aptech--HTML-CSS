@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hienthihinh img {
+            width: 200px;
+            height: 200px;
+            margin: 3px;
+            border-radius: 25px;
+        }
+    </style>
+    <script>
+        function F4() {
+            var n = document.getElementById('sohinh').value;
+            var s = '';
+            for (var i = 1; i <= n; i++) {
+                if (i % 2 == 0) {
+                    s = s + '<img src="img/1.png">'
+                } else {
+                    s = s + '<img src="img/2.jpg">'
+                }
+            }
+            document.getElementById('hienthihinh').innerHTML = s;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="number" name="" id="sohinh" onkeyup=" F4()">
+    <div id="hienthihinh"></div>
+</body>
+
+</html>
