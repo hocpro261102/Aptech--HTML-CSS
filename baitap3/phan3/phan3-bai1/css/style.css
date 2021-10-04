@@ -6,7 +6,6 @@
 
 #container {
     background-color: #2D241F;
-    height: 1000px;
     padding: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -39,6 +38,7 @@
     background-color: #403328;
     height: 50px;
     border-radius: 8px;
+    margin-bottom: 40px;
 }
 
 .menu {
@@ -53,9 +53,41 @@
 
 .menu:hover {
     background-color: #6e5946;
+    cursor: pointer;
 }
 
 #first-menu:hover {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+}
+
+
+/* End menu  */
+
+#vanban {
+    padding: 30px 50px 100px 50px;
+    background-color: #40332A;
+    border-radius: 10px;
+}
+
+#tieude {
+    color: #DCCBBD;
+    font-size: 30px;
+}
+
+hr {
+    border-top: 2px dashed #DCCBBD;
+    border-bottom: none;
+    margin: 20px 0;
+}
+
+.doan {
+    padding-bottom: 20px;
+    color: #9F8F81;
+    line-height: 160%;
+}
+
+#them a {
+    color: #869133;
+    text-decoration: none
 }
