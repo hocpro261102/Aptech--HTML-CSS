@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    padding: 200px 35%;
+}
+
+#head {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px 5px 20px 10px;
+}
+
+#body {
+    margin: 10px;
+}
+
+#nhapa,
+#nhapb {
+    display: inline-block;
+}
+
+#nhapa {
+    margin-right: 40px;
+}
+
+#ketqua {
+    margin: 10px 0;
+}
