@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        function F1() {
+            let s1 = "hello!";
+            let s2 = "My function";
+            document.getElementById('result').innerHTML = s1 + s2;
+        }
+
+        function F2(n) {
+            let n1 = n * n;
+            return "Binh phuong cua " + n + " = " + n1;
+        }
+
+        function F3(n, m) {
+            return n * n + m * m;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        F1();
+        document.write(F2(9));
+    </script>
+
+    <hr>
+
+    <script>
+        var s = F3(5, 2);
+        console.log(s);
+    </script>
+</body>
+
+</html>
