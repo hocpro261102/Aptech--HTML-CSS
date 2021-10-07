@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    padding: 100px 27%;
+}
+
+#head {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0 20px 10px;
+}
+
+#body {
+    margin: 10px 0 10px 10px;
+}
+
+.nhap {
+    display: inline-block;
+    width: 30%;
+    margin-right: 20px;
+}
+
+#ketqua {
+    margin: 10px 0;
+}
+
+#ketqua input {
+    width: 85%;
+}
