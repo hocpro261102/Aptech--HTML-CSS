@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <style>
+        #result {
+            font-size: 30px;
+            color: red
+        }
+    </style>
+    <script>
+        function F1() {
+            document.getElementById('result').innerHTML = 'onmouseover';
+        }
+
+        function F2() {
+            document.getElementById('result').innerHTML = 'onmouseout';
+        }
+
+        function F3() {
+            document.getElementById('result').innerHTML = 'onblur';
+        }
+
+        function F4() {
+            document.getElementById('result').innerHTML = 'onfocus';
+        }
+
+        function F5(v) {
+            document.getElementById('result').innerHTML = 'onChange, value=' + v;
+        }
+
+        function F6() {
+            document.getElementById('result').innerHTML = 'onload';
+        }
+
+        function F7() {
+            document.getElementById('result').innerHTML = 'onsubmit';
+            return false;
+        }
+    </script>
+</head>
+
+<body onload="F6()">
+    <div onmouseover="F1();" onmouseout="F2()">Lorem ipsum dolor sit amet.</div>
+    <form onsubmit="return F7()">
+        <input type="text" onblur="F3()">
+        <input type="text" onfocus="F4()">
+        <select name="" onchange="F5(this.value)">
+            <option value="1">Gia tri 1</option>
+            <option value="2">Gia tri 2</option>
+            <option value="3">Gia tri 3</option>
+            <option value="4">Gia tri 4</option>
+        </select>
+        <input type="submit">
+    </form>
+    <div id="result"></div>
+</body>
+
+</html>
