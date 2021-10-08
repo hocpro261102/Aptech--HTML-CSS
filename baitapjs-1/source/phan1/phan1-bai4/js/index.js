@@ -22,7 +22,8 @@ function tong() {
     let n = document.getElementById('n').value;
     let s = 0;
     for (i = 1; i <= n; i++) {
-        s += i;
+        if (i % 2 != 0)
+            s += i;
     }
     document.getElementById('ketqua3').value = s;
 
