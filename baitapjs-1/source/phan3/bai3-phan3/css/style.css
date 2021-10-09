@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    padding: 100px 36%;
+}
+
+#head {
+    padding: 10px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#body {
+    padding: 10px;
+}
+
+.ketqua {
+    margin-top: 10px;
+}
+
+#ketqua1 {
+    margin-left: 35%;
+    width: 50%;
+}
+
+#ketqua2 {
+    margin-left: 19%;
+    width: 50%;
+}
+
+#ketqua3 {
+    margin-left: 12%;
+    width: 50%;
+}
