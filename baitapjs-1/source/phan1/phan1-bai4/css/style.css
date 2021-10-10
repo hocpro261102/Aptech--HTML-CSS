@@ -5,7 +5,7 @@
 }
 
 #container {
-    padding: 100px 38%;
+    padding: 100px 36%;
 }
 
 #head {
@@ -23,21 +23,26 @@
 }
 
 .nhap #n {
-    margin-left: 41%;
+    margin-left: 36%;
+    width: 58%;
 }
 
 .nhap #ketqua1 {
-    margin-left: 40%;
+    margin-left: 35.5%;
+    width: 58%;
 }
 
 .nhap #ketqua2 {
-    margin-left: 31.5%;
+    margin-left: 28.2%;
+    width: 58%;
 }
 
 .nhap #ketqua3 {
-    margin-left: 23%;
+    margin-left: 21%;
+    width: 58%;
 }
 
 .nhap #ketqua4 {
     margin-left: 9%;
+    width: 58%;
 }
