@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <script>
+        function F1() {
+            var s1 = 'Thu Hai'
+            var s2 = "Thu Hai u"
+            var s3 = `Thu Hai`
+            let n = s1.length;
+            alert(s1 + `co do dai la` + n)
+            let s4 = s1.toLowerCase();
+            let s5 = s1.toUpperCase();
+
+            //tim kiem
+            let m1 = s2.indexOf('u');
+            let m2 = s2.lastIndexOf('u');
+            let m3 = s2.indexOf('Hu');
+            console.log(m1, m2, m3)
+
+            // replace(old,new)
+            let s6 = s2.replace('u', '🐱‍👓🐱‍🚀🐱‍🐉'); //phim window + .
+            console.log(s6);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="F1()">F1</button>
+</body>
+
+</html>

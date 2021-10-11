@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function F1() {
+            let x = document.forms[1].x.value;
+            // let y = document.forms[1].y.value;
+            var a = document.forms[1].pt;
+            for (let i = 0; i < a.length; i++)
+                if (a[i].checked)
+                    alert(a[i].value)
+
+        }
+    </script>
+</head>
+
+<body>
+    <form action=""></form>
+    <form>
+        <label for="">x</label>
+        <input type="number" name="x">
+        <label for="">y</label>
+        <input type="number" name="y"> Phép toán:
+        <input type="radio" value="+" name="pt">+
+        <input type="radio" value="-" name="pt">-
+        <input type="~radio" value="*" name="pt">*
+        <input type="radio" value="/" name="pt">/ <br>
+        <button onclick="F1()">Tinh</button>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date-Number-Math</title>
+    <script>
+        function F1() {
+            let d = new Date();
+            let ng = d.getDate();
+            let th = d.getMonth();
+            let n = d.getFullYear();
+            let t = d.getTime();
+            document.getElementById('ketqua1').innerHTML = `${ng}/${th}/${n} ${t}`
+        }
+
+        function F2() {
+            let s1 = "123.4r";
+            let s2 = '12.5';
+            let s3 = 12.6;
+            let s4 = 'abc12.5';
+            console.log(parseInt(s1));
+            console.log(parseInt(s2));
+            console.log(parseInt(s3));
+            console.log(parseInt(s4));
+            console.log(parseFloat(s1));
+            console.log(parseFloat(s2));
+            console.log(parseFloat(s3));
+            console.log(parseFloat(s4));
+        }
+
+        function F3() {
+            let x = Math.pow(2, 4);
+            console.log(x);
+            let m = Math.ceil(3.05);
+            let o = Math.floor(4.728);
+            console.log(`m=`, m, `o`, o);
+            console.log(Math.PI);
+        }
+    </script>
+</head>
+
+<body onload="F1()">
+    <button onclick="F2()">F2</button>
+    <button onclick="F3()">F3</button>
+    <div id="ketqua1"></div>
+</body>
+
+</html>

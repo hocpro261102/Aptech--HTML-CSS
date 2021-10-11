@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <script>
+        function F1() {
+            var cars = ['xe1', 'xe2', 'xe3', 'xe4'];
+            document.getElementById('id1').innerHTML = cars;
+            console.log(cars);
+            cars[3] = 'xe5';
+            console.log(cars);
+        }
+
+        function F2() {}
+    </script>
+</head>
+
+<body>
+    <button onclick="F1()">F1</button>
+    <div id="id1"></div>
+    <div id="id2"></div>
+</body>
+
+</html>
