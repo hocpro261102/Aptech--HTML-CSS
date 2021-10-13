@@ -1,0 +1,129 @@
+<script>
+    // var a[1, 3, 8, 4];
+    // for (i = 0; i < a.length; i++)
+    //     console.log('pt' + i, a[i]);
+    var b = [{
+        id: 1,
+        name: 'San pham 1',
+        price: 20,
+        img: '1.png',
+        catid: 'phone'
+    }, {
+        id: 2,
+        name: 'San pham 2',
+        price: 12,
+        img: '2.png',
+        catid: 'laptop'
+
+    }, {
+        id: 3,
+        name: 'San pham 3',
+        price: 30,
+        img: '3.png',
+        catid: 'phone'
+    }, {
+        id: 4,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'phone'
+    }, {
+        id: 5,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'phone'
+    }, {
+        id: 6,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'phone'
+    }, {
+        id: 7,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'tv'
+    }, {
+        id: 8,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'phone'
+    }, {
+        id: 9,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'tv'
+    }, {
+        id: 10,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'phone'
+    }, {
+        id: 11,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'laptop'
+    }, {
+        id: 12,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'phone'
+    }, {
+        id: 13,
+        name: 'San pham 4',
+        price: 14,
+        img: '4.jpg',
+        catid: 'tv'
+    }, ];
+    //duyet va xuat mang b ra bang html(trong id= id1)
+
+    function F1() {
+        var phone = '<div> San pham dien thoai</div>';
+        var laptop = '<div> San pham laptop </div>';
+        var tv = '<div> San pham Tivi </div>';
+        for (i = 0; i < b.length; i++) {
+            let temp = b[i];
+            let s = `<div class=sp>
+                <h2>${temp.name}</h2>
+                <img src="img/${temp.img}">
+                <div class="price">${temp.price}</div>
+            </div>
+                `;
+            if (temp.catid == 'phone')
+                phone += s;
+            if (temp.catid == 'laptop')
+                laptop += s;
+            if (temp.catid == 'tv')
+                tv += s;
+
+        }
+        let clear = '<div style="clear:both">';
+        document.getElementById('id1').innerHTML += phone + clear + laptop + clear + tv;
+
+    }
+</script>
+<style>
+    #id1 div.sp {
+        width: 200px;
+        height: 250px;
+        display: inline-block;
+        margin: 20px;
+        border-radius: 10px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.199);
+    }
+    
+    #id1 div.sp img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
+<button onclick="F1()">Hien data</button>
+<div id="id1"></div>
