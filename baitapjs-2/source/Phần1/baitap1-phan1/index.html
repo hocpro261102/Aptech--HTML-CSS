@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 40%;
+        }
+        
+        .ele {
+            margin-top: 5px;
+        }
+        
+        #hoten {
+            margin-left: 16%;
+        }
+        
+        #ho {
+            margin-left: 26.5%;
+        }
+        
+        #ten {
+            margin-left: 24.5%;
+        }
+        
+        #holot {
+            margin-left: 19%;
+        }
+        
+        #viethoa {
+            margin-left: 14.3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="ele">
+                    <label for="">Họ Tên:</label> <input type="text" id="hoten" placeholder="nguyen van teo">
+                </div>
+
+                <div class="ele">
+                    <label for="">Họ:</label> <input id="ho" placeholder="nguyen">
+                </div>
+                <div class="ele">
+                    <label for="">Tên:</label> <input id="ten" placeholder="teo">
+                </div>
+                <div class="ele">
+                    <label for="">Họ lót:</label> <input id="holot" placeholder="van">
+                </div>
+                <div class="ele">
+                    <label for="">Viết hoa:</label> <input id="viethoa" placeholder="Nguyen Van Teo">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        let hotenInput = document.getElementById("hoten");
+        hotenInput.addEventListener("change", function() {
+            F1();
+        });
+
+        function F1() {
+            let hoten1 = document.getElementById('hoten').value;
+            let hoten2 = hoten1.split(" ");
+            let ho = hoten2[0];
+            document.getElementById('ho').value = ho;
+
+            let ten = hoten2[hoten2.length - 1];
+            document.getElementById('ten').value = ten;
+
+            hoten2.shift();
+            hoten2.pop();
+            document.getElementById('holot').value = hoten2.join(" ");
+
+
+            let hoten3 = hoten1.split(" ");
+            for (i = 0; i < hoten3.length; i++) {
+                hoten3[i] = hoten3[i][0].toUpperCase() + hoten3[i].slice(1);
+            }
+            document.getElementById('viethoa').value = hoten3.join(" ");
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
