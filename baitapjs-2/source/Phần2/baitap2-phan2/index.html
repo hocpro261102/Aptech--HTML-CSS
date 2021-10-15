@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 35%;
+        }
+        
+        .ele+.ele {
+            margin-top: 8px;
+        }
+        
+        input {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="ele">
+                    <label for="">Nhập dãy số:</label>
+                    <input type="text" id="dayso" placeholder="8 10 1 6 -5">
+                </div>
+                <div class="ele">
+                    <label for="">Số nhỏ nhất:</label>
+                    <input type="text" id="min" placeholder="-5">
+                </div>
+                <div class="ele">
+                    <label for="">Trung bình cộng các số dương:</label>
+                    <input type="text" id="tb" placeholder="6.25">
+                </div>
+                <div class="ele">
+                    <label for="">Số âm đầu tiên:</label>
+                    <input type="text" id="soam" placeholder="-5">
+                </div>
+                <div class="ele">
+                    <label for="">Sắp xếp tăng dần:</label>
+                    <input type="text" id="sapxep" placeholder="-5 1 6 8 10">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        let daysoinput = document.getElementById('dayso');
+        daysoinput.addEventListener("change", function() {
+            F1();
+        });
+
+        function F1() {
+            let dayso1 = document.getElementById('dayso').value;
+            let dayso2 = dayso1.split(" ");
+
+            //min
+            let min = dayso2[0];
+            for (i = 1; i < dayso2.length; i++)
+                if (dayso2[i] < min)
+                    min = dayso2[i];
+            document.getElementById('min').value = min;
+
+            //tbc
+            let x = 0;
+            let y = 0
+            for (i = 0; i < dayso2.length; i++)
+                if (dayso2[i] > 0) {
+                    x += dayso2[i] * 1;
+                    y++;
+                }
+            let tbc = (x / y);
+            document.getElementById('tb').value = tbc;
+
+            //so am
+            let soam;
+            for (i = 0; i < dayso2.length; i++)
+                if (dayso2[i] < 0) break; {
+                    soam = dayso2[i];
+                }
+            document.getElementById('soam').value = soam;
+
+            //sapxep
+            dayso2.sort(function(a, b) {
+                return a - b
+            });
+            document.getElementById('sapxep').value = dayso2.join(" ");
+
+
+
+        }
+    </script>
+</body>
+
+</html>

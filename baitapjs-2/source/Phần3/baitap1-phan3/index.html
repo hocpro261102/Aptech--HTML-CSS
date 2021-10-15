@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 30%;
+        }
+        
+        input {
+            width: 45%;
+            float: right;
+        }
+        
+        .ele+.ele {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="ele">
+                    <label for="">Họ tên:</label>
+                    <input type="text" id="hoten" placeholder="NGuyen van ThUOng">
+                </div>
+
+                <div class="ele">
+                    <label for="">Số ký tự a:</label>
+                    <input type="text" id="so" placeholder="1">
+                </div>
+
+                <div class="ele">
+                    <label for="">Viết hoa ký tự thường và ngược lại:</label>
+                    <input type="text" id="vietlai" placeholder="ngUYEN VAN tHuoNG">
+                </div>
+
+                <div class=" ele ">
+                    <label for=" ">Chiều dài từ dài nhất:</label>
+                    <input type="text " id="chieudai" placeholder="6 ">
+                </div>
+
+                <div class="ele ">
+                    <label for=" ">Các từ dài nhất:</label>
+                    <input type="text " id="tudai" placeholder="NGuyen van ThUOng ">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        let hoteninput = document.getElementById("hoten");
+        hoteninput.addEventListener("change", function() {
+            F1();
+        });
+
+        function F1() {
+            let hoten = document.getElementById("hoten").value;
+
+            //tim a
+            let a = 0;
+            for (i = 0; i < hoten.length; i++)
+                if (hoten[i] == 'a')
+                    a++;
+            document.getElementById('so').value = a;
+
+
+            //viet lai
+            let kq = '';
+            for (i = 0; i < hoten.length; i++)
+                if (hoten[i] === hoten[i].toUpperCase()) {
+                    kq += hoten[i].toLowerCase();
+
+                } else {
+                    kq += hoten[i].toUpperCase();
+
+                }
+            document.getElementById("vietlai").value = kq;
+
+            // chieu dai tu dai nhat
+            let hoten1 = hoten.split(" ");
+            let max = hoten1[0].length;
+            for (i = 1; i < hoten1.length; i++) {
+                if (hoten1[i].length > max)
+                    max = hoten1[i].length;
+            }
+            document.getElementById("chieudai").value = max;
+
+            // cac tu dai nhat
+            let tudainhat = '';
+            let max1 = Number(max)
+            for (i = 0; i < hoten1.length; i++)
+                if (hoten1[i].length == max1)
+                    tudainhat += hoten1[i] + " ";
+            document.getElementById("tudai").value = tudainhat;
+        }
+    </script>
+</body>
+
+</html>

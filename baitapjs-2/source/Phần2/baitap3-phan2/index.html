@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 35%;
+        }
+        
+        .ts {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .ele+.ele {
+            margin-top: 8px;
+        }
+        
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="ele center">
+                    <input type="button" value="Tạo số" onclick="F1()">
+                </div>
+                <div class="ts ele">
+                    <label for="">a =</label>
+                    <input id="a">
+                </div>
+                <div class="ts ele">
+                    <label for="">b =</label>
+                    <input id="b">
+                </div>
+                <div class="ele center">
+                    <label for="">Kết quả cộng =</label>
+                    <input type="text" id="kq">
+                </div>
+                <div class="ele center">
+                    <input type="button" value="Tính" onclick="F2()">
+                    <input type="text" id="dungsai">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        let a = Math.floor(Math.random() * 10) + 1;
+        let b = Math.floor(Math.random() * 10) + 1;
+        let tong = a + b;
+
+        function F1() {
+            document.getElementById('a').value = a;
+            document.getElementById('b').value = b;
+        }
+
+
+        function F2() {
+            let cong = Number(document.getElementById("kq").value);
+
+            if (cong == tong)
+                document.getElementById("dungsai").value = `Đúng`;
+            else
+                document.getElementById("dungsai").value = `Sai`;
+
+        }
+    </script>
+</body>
+
+</html>

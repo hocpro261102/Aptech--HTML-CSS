@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 38%;
+        }
+        
+        .ele+.ele {
+            margin-top: 8px;
+        }
+        
+        input {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="ele">
+                    <label for="">Nhập dãy số:</label> <input type="text" id="dayso" placeholder="8 10 1 6 -5">
+                </div>
+                <div class="ele">
+                    <label for="">Vị trí số lẻ đầu tiên:</label> <input type="text" id="vitri" placeholder="2">
+                </div>
+                <div class="ele">
+                    <label for="">Tổng các số lẻ:</label> <input type="text" id="tong" placeholder="-4">
+                </div>
+                <div class="ele">
+                    <label for="">Liệt kê các số lẻ:</label> <input type="text" id="lietke" placeholder="1 -5">
+                </div>
+                <div class="ele">
+                    <label for="">Số lẻ lớn nhất:</label> <input type="text" id="max" placeholder="1">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        let daysoinput = document.getElementById("dayso");
+        daysoinput.addEventListener("change", function() {
+            F1();
+        });
+
+        function F1() {
+            let dayso = document.getElementById("dayso").value.split(" ");
+
+            //vitri
+            let vitri;
+            for (i = 0; i < dayso.length; i++)
+                if (dayso[i] % 2 != 0) break; {
+                    vitri = i;
+                }
+            document.getElementById('vitri').value = vitri;
+
+            //tong
+            let tong = 0;
+            for (i = 0; i < dayso.length; i++)
+                if (dayso[i] % 2 != 0)
+                    tong += dayso[i] * 1;
+            document.getElementById('tong').value = tong;
+
+            //liet ke
+            let lietke = '';
+            for (i = 0; i < dayso.length; i++)
+                if (dayso[i] % 2 != 0)
+                    lietke += dayso[i] + " ";
+            document.getElementById('lietke').value = lietke;
+
+            // so le lon nhat
+            let daysole = lietke.split(" ");
+            let max = daysole[0] * 1;
+            for (i = 1; i < daysole.length - 1; i++)
+                if (daysole[i] * 1 > max)
+                    max = daysole[i] * 1;
+
+            document.getElementById('max').value = max;
+        }
+    </script>
+</body>
+
+</html>
