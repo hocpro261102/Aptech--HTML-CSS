@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 38%;
+        }
+        
+        .ele+.ele {
+            margin-top: 8px;
+        }
+        
+        #hoten {
+            margin-left: 32%;
+        }
+        
+        #sotu {
+            margin-left: 11.5%;
+        }
+        
+        #loichao {
+            margin-left: 28%;
+        }
+        
+        #viethoa {
+            margin-left: 6.5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="ele">
+                    <label for="">Họ tên:</label>
+                    <input type="text" id="hoten" placeholder="nguyen van teo">
+                </div>
+                <div class="ele">
+                    <label for="">Số từ trong chuỗi:</label>
+                    <input id="sotu" placeholder="3">
+                </div>
+                <div class="ele">
+                    <label for="">Lời chào:</label>
+                    <input id="loichao" placeholder="Xin chào ông Teo">
+                </div>
+                <div class="ele">
+                    <label for="">Viết hoa nguyên âm:</label>
+                    <input id="viethoa" placeholder="ngUYEn vAn tEo">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        let hotenInput = document.getElementById('hoten');
+        hotenInput.addEventListener("change", function() {
+            F1();
+        });
+
+        function F1() {
+            let hoten1 = document.getElementById('hoten').value;
+            let hoten2 = hoten1.split(" ");
+            document.getElementById("sotu").value = hoten2.length;
+
+            //loi chao
+            let ten1 = hoten2[hoten2.length - 1][0].toUpperCase() + hoten2[hoten2.length - 1].slice(1);
+            document.getElementById('loichao').value = `Xin chào ông ${ten1}`;
+
+            //Viet hoa nguyen am
+            let viethoa = hoten1.toLowerCase().split(" ");
+            let kq = '';
+            for (i = 0; i < viethoa.length; i++) {
+                let chu = viethoa[i].split("");
+                for (j = 0; j < chu.length; j++) {
+                    if (chu[j] == 'a' || chu[j] == 'y' || chu[j] == 'ă' || chu[j] == 'â' || chu[j] == 'e' || chu[j] == 'ê' || chu[j] == 'i' || chu[j] == 'o' || chu[j] == 'ô' || chu[j] == 'ơ' || chu[j] == 'u' || chu[j] == 'ư') {
+                        chu[j] = chu[j].toUpperCase();
+
+                    }
+                }
+                chu = chu.join("")
+                kq += chu + ' ';
+
+            }
+            document.getElementById('viethoa').value = kq;
+        }
+    </script>
+</body>
+
+</html>
