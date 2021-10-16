@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #id1 div.sp {
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            float: left;
+            background-color: aqua;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        function F() {
+            // $('#id1').css('background', 'red');
+            $.ajax({
+                url: 'https://6166e0c813aa1d00170a6850.mockapi.io/sanpham',
+                success: function(data) {
+
+                    for (i = 0; i < data.length; i++) {
+                        s = `<div class="sp">
+                                <h2>${data[i].name}</h2>
+                                <img src="${data[i].avatar}" alt="">
+                                
+                             </div>`
+                        $('#id1').append(s);
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body onload="F()">
+    <div id="id1">
+        <img src="" alt="">
+    </div>
+
+
+</body>
+
+</html>

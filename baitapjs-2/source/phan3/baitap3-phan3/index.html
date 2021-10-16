@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            padding: 100px 26%;
+        }
+        
+        .dayso {
+            display: inline-block;
+        }
+        
+        .btn {
+            margin: 12px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form action="">
+            <fieldset>
+                <div class="btn">
+                    <input type="button" value="Tạo dãy số" onclick="F1()">
+                </div>
+                <div id="dayso">
+                    <div class="dayso"><input type="number" id="kq1"></div>
+                    <div class="dayso"><input type="number" id="kq2"></div>
+                    <div class="dayso"><input type="number" id="kq3"></div>
+                    <div class="dayso"><input type="number" id="kq4"></div>
+                </div>
+                <div class="btn">
+                    <input type="button" value="Kết quả" onclick="F2()">
+                    <input id="kq5">
+                </div>
+            </fieldset>
+        </form>
+        <script>
+            let x = Math.floor(Math.random() * 4);
+            let a = Math.floor(Math.random() * 100) + 1;
+            if (a % 2 == 0)
+                a = a + 1;
+            let b = a + 2;
+            let c = a + 4;
+            let d = a + 6;
+
+
+            function F1() {
+
+                if (x == 0) {
+                    document.getElementById('kq2').value = b;
+                    document.getElementById('kq3').value = c;
+                    document.getElementById('kq4').value = d;
+                }
+                if (x == 1) {
+                    document.getElementById('kq1').value = a;
+                    document.getElementById('kq3').value = c;
+                    document.getElementById('kq4').value = d;
+                }
+                if (x == 2) {
+                    document.getElementById('kq1').value = a;
+                    document.getElementById('kq2').value = b;
+                    document.getElementById('kq4').value = d;
+                }
+                if (x == 3) {
+                    document.getElementById('kq1').value = a;
+                    document.getElementById('kq2').value = b;
+                    document.getElementById('kq3').value = c;
+                }
+            }
+
+            function F2() {
+
+                if (x == 0) {
+                    let a1 = document.getElementById('kq1').value;
+                    if (a1 == b - 2)
+                        document.getElementById('kq5').value = `Đúng`;
+                    else
+                        document.getElementById('kq5').value = `Sai`;
+                }
+                if (x == 1) {
+                    let b1 = document.getElementById('kq2').value;
+                    if (b1 == c - 2)
+                        document.getElementById('kq5').value = `Đúng`;
+                    else
+                        document.getElementById('kq5').value = `Sai`;
+                }
+                if (x == 2) {
+                    let c1 = document.getElementById('kq3').value;
+                    if (c1 == b + 2)
+                        document.getElementById('kq5').value = `Đúng`;
+                    else
+                        document.getElementById('kq5').value = `Sai`;
+                }
+                if (x == 3) {
+                    let d1 = document.getElementById('kq4').value;
+                    if (d1 == c + 2)
+                        document.getElementById('kq5').value = `Đúng`;
+                    else
+                        document.getElementById('kq5').value = `Sai`;
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
