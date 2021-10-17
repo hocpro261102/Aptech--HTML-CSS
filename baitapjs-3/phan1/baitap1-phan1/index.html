@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 250px;
+            border: 2px solid rgb(89, 83, 146)
+        }
+        
+        .row {
+            display: flex;
+            width: 100%;
+            margin: 5px 10px;
+        }
+        
+        .sub_title {
+            flex-basis: 60%;
+        }
+        
+        .sub_info {
+            flex-basis: 35%;
+        }
+        
+        #tv h2,
+        #head {
+            margin-left: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head" style="margin-bottom: 35px;">
+            <h1 for="">Thông tin tivi</label>
+        </div>
+        <hr>
+        <div id="content">
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        let tv_array = [{
+            maso: "TV001",
+            hangsanxuat: "Panasonic",
+            soinch: 21,
+            gianhap: 10000000,
+        }, {
+            maso: "TV002",
+            hangsanxuat: "LG",
+            soinch: 49,
+            gianhap: 20000000,
+        }];
+
+        for (let i = 0; i < tv_array.length; i++) {
+            let tivi = tv_array[i];
+            let giaban = (tivi.gianhap * 1.1).toFixed(0);
+
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+            giaban = numberWithCommas(giaban);
+            tivi.gianhap = numberWithCommas(tivi.gianhap.toFixed(0));
+            let tv_details = `
+                <div id="tv">
+                    <div><h2>Thông tin tivi ${i+1}</h2></div>
+                    <div class="row">
+                        <div class="sub_title">Mã số: </div>
+                        <div class="sub_info">${tivi.maso}</div>
+                    </div>
+                    <div class="row">
+                        <div class="sub_title">Hãng sản xuất: </div>
+                        <div class="sub_info">${tivi.hangsanxuat}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="sub_title">Số inch: </div>
+                        <div class="sub_info">${tivi.soinch}</div>
+                    </div>
+                    <div class="row">
+                        <div class="sub_title">Giá nhập: </div>
+                        <div class="sub_info">${tivi.gianhap}</div>
+                    </div>
+                    <div class="row">
+                        <div class="sub_title">Giá bán: </div>
+                        <div class="sub_info">${giaban}</div>
+                    </div>
+                </div>
+            `;
+            $("#content").append(tv_details);
+        }
+    </script>
+</body>
+
+</html>
