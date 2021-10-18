@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="detail">
+        <table>
+            <tr>
+                <td id="avatar" rowspan="3"></td>
+                <td id="id"></td>
+            </tr>
+            <tr>
+                <td id="name"></td>
+
+            </tr>
+            <tr>
+                <td id="createdAt"></td>
+
+            </tr>
+        </table>
+    </div>
+    <input type="text" name="" id="n"> <button onclick="F1()">Load data</button>
+    <div id="id1"></div>
+    <script>
+        var x = new XMLHttpRequest();
+
+        function F1() {
+            if (x.readyState == 0 || x.readyState == 4) {
+                x.open('GET', 'data.txt', true);
+                x.onreadystatechange = function() {
+                    if (x.readyState == 4) {
+                        if (x.status == 200) {
+                            obj = JSON.parse(x.responseText);
+                            for (let i = 0; i < obj.length; i++) {
+                                let s = `<img src='${obj[i].avatar}' onClick='F2(${obj[i].id})'>`;
+                                document.getElementById('id1').innerHTML += s;
+                            }
+
+
+                        }
+                    }
+                }
+                x.send(null)
+            }
+        }
+
+        function F2(v) {
+            if (x.readyState == 0 || x.readyState == 4) {
+                let url = 'https://6166e0c813aa1d00170a6850.mockapi.io/sanpham/' + v;
+                x.open('GET', url, true);
+                x.onreadystatechange = function() {
+                    if (x.readyState == 4) {
+                        if (x.status == 200) {
+                            obj = JSON.parse(x.responseText);
+                            document.getElementById('avatar').innerHTML = `<img src="${obj.avatar}" alt="">`;
+                            document.getElementById('id').innerHTML = obj.id;
+                            document.getElementById('name').innerHTML = obj.name;
+                            document.getElementById('createdAt').innerHTML = obj.createdAt;
+                        }
+
+
+                    }
+                }
+            }
+            x.send(null)
+        }
+    </script>
+</body>
+
+</html>
