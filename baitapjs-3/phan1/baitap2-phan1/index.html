@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 280px;
+            padding: 8px;
+            border: 2px solid rgb(155, 155, 204);
+            margin: 59px 50px;
+        }
+        
+        .ele {
+            width: 260px;
+        }
+        
+        #ten {
+            width: 200px;
+            outline: none;
+        }
+        
+        #dantoc {
+            width: 220px;
+        }
+        
+        #head h1 {
+            margin-top: 0px;
+        }
+        
+        #body {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <h1>Thông tin nhân viên</h1>
+        </div>
+        <hr />
+        <div id="body">
+            <form action="" name="form1">
+                <label for="">Họ tên:</label>
+                <input type="text" name="ten" id="ten" required />
+                <div class="ele">
+                    <fieldset>
+                        <legend>Giới tính</legend>
+                        <input type="radio" name="gt" id="gt" checked value="Nam" />Nam
+                        <input type="radio" name="gt" id="gt" value="Nữ" />Nữ
+                    </fieldset>
+                </div>
+
+                <div class="ele">
+                    <fieldset>
+                        <legend>Ngoại Ngữ</legend>
+                        <input type="checkbox" name="ngoaingu" checked id="ngoaingu" value="Anh" />Anh
+                        <input type="checkbox" name="ngoaingu" id="ngoaingu" value="Nhật" />Nhật
+                        <input type="checkbox" name="ngoaingu" id="ngoaingu" value="Hàn" />Hàn
+                    </fieldset>
+                </div>
+
+                <div class="ele">
+                    <fieldset>
+                        <legend>Dân tộc</legend>
+                        <select name="dantoc" id="dantoc">
+                                <option value="Kinh">Kinh</option>
+                                <option value="Tày">Tày</option>
+                                <option value="Thái">Thái</option>
+                                <option value="Hoa">Hoa</option>
+                                <option value="Mường">Mường</option>
+                                <option value="Dân tộc khác">
+                                    Dân tộc khác
+                                </option>
+                            </select>
+                    </fieldset>
+                </div>
+                <div id="btn" style="margin: 8px 0 0 16px">
+                    <input class="submitBtn" type="button" value="Gửi thông tin" onclick="F1()" />
+                    <input type="reset" value="Xóa dữ liệu" />
+                </div>
+            </form>
+        </div>
+        <hr />
+        <div id="footer">
+            <h1>Hiển thị thông tin</h1>
+            <div>Họ tên:</div>
+            <div>Giới tính:</div>
+            <div>Ngoại ngữ:</div>
+            <div>Dân tộc:</div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        function disabledSubmit() {
+            let submitBtn = $(".submitBtn");
+            submitBtn.prop("disabled", true);
+
+            let o_nhap_ten = $("#ten");
+            o_nhap_ten.keyup(function() {
+                if (o_nhap_ten.val() === "")
+                    submitBtn.prop("disabled", true);
+                else submitBtn.prop("disabled", false);
+            });
+        }
+        disabledSubmit();
+
+        function F1() {
+            let ten = $("#ten").val();
+            let gt = $("#gt").val();
+            let ngoaingu = "";
+            var checkbox = document.getElementsByName("ngoaingu");
+            for (var i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked === true) {
+                    ngoaingu += checkbox[i].value + " ";
+                }
+            }
+            let dantoc = $("#dantoc").val();
+            let s = `<h1>Hiển thị thông tin</h1>
+                    <div>Họ tên: ${ten}</div>
+                    <div>Giới tính: ${gt}</div>
+                    <div>Ngoại ngữ: ${ngoaingu}</div>
+                    <div>Dân tộc: ${dantoc}</div>`;
+
+            document.getElementById("footer").innerHTML = s;
+        }
+    </script>
+</body>
+
+</html>
