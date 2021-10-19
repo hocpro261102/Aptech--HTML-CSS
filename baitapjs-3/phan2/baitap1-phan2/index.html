@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+            border: 2px solid blue;
+            padding: 8px;
+        }
+        
+        #row {
+            display: flex;
+        }
+        
+        #sub_tittle {
+            flex-basis: 25%;
+        }
+        
+        #sub_info {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <h1>Thông tin sách</h1>
+        </div>
+        <hr />
+        <div id="body"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        let sach_array = [{
+            masach: "S001",
+            tensach: " Thiết kế web bằng HTML5",
+            sotrang: 100,
+            giaban: 100000,
+        }, {
+            masach: "S002",
+            tensach: " Lập trình web với PHP",
+            sotrang: 200,
+            giaban: 100000,
+        }, ];
+
+        for (let i = 0; i < sach_array.length; i++) {
+            let sach = sach_array[i];
+            let giatrang = (sach.giaban / sach.sotrang).toFixed(0);
+
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+            giatrang = numberWithCommas(giatrang);
+            sach.giaban = numberWithCommas(sach.giaban.toFixed(0));
+            let sach_detail = `<div>
+                                    <h3>Thông tin quyển sách${i + 1}:</h3>
+                                </div>
+                                <div id="row">
+                                    <div id="sub_tittle">Mã sách:</div>
+                                    <div id="sub_info">${sach.masach}</div>
+                                </div>
+                                <div id="row">
+                                    <div id="sub_tittle">Tên sách:</div>
+                                    <div id="sub_info">${sach.tensach}</div>
+                                </div>
+                                <div id="row">
+                                    <div id="sub_tittle">Số trang:</div>
+                                    <div id="sub_info">${sach.sotrang}</div>
+                                </div>
+                                <div id="row">
+                                    <div id="sub_tittle">Giá/trang:</div>
+                                    <div id="sub_info">${giatrang}</div>
+                                </div>
+                                <div id="row">
+                                    <div id="sub_tittle">Giá bán:</div>
+                                    <div id="sub_info">${sach.giaban}</div>
+                                </div>`;
+            $("#body").append(sach_detail);
+        }
+    </script>
+</body>
+
+</html>

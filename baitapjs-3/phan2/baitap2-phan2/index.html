@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 250px;
+            border: 2px solid blue;
+            padding: 5px;
+        }
+        
+        #ele {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        #ele label {
+            flex-basis: 30%;
+        }
+        
+        #ele input {
+            flex-basis: 65%;
+            outline: none;
+        }
+        
+        #btn {
+            margin: 5px 0;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <h1>Thông tin sách</h1>
+        </div>
+        <hr />
+        <div id="body">
+            <form action="">
+                <div id="ele">
+                    <label for="">Mã sách:</label>
+                    <input type="text" id="masach" />
+                </div>
+
+                <div id="ele">
+                    <label for="">Tên sách:</label>
+                    <input type="text" id="tensach" />
+                </div>
+
+                <fieldset>
+                    <legend>Nhà xuất bản</legend>
+                    <div class="nxb">
+                        <input type="radio" value="ĐH Quốc Gia" id="nxb" name="nxb" checked /> ĐH Quốc Gia
+                    </div>
+                    <div class="nxb">
+                        <input type="radio" value="Lao Động" id="nxb" name="nxb" /> Lao Động
+                    </div>
+                    <div class="nxb">
+                        <input type="radio" value="Minh Khai" id="nxb" name="nxb" /> Minh Khai
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Thể loại</legend>
+                    <select name="" id="theloai">
+                            <option value="Tin Học">Tin Học</option>
+                            <option value="Tiếng Anh">Tiếng Anh</option>
+                            <option value="Toán Học">Toán Học</option>
+                        </select>
+                </fieldset>
+                <div id="btn">
+                    <input id="gui" type="button" value="Gửi thông tin" onclick="F1()" />
+                    <input type="reset" value="Xóa dữ liệu" />
+                </div>
+            </form>
+        </div>
+        <hr />
+        <div id="footer">
+            <h2>Hiển thị thông tin</h2>
+            <div class="info">Mã sách:</div>
+            <div class="info">Tên sách:</div>
+            <div class="info">Nhà xuất bản:</div>
+            <div class="info">Thể loại:</div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        function disabledbutton() {
+            let gui = $("#gui");
+            gui.prop("disabled", true);
+
+            let o_nhap_ma = $("#masach");
+
+            let o_nhap_ten = $("#tensach");
+            o_nhap_ma.keyup(function() {
+                if (o_nhap_ma.val() === "" || o_nhap_ten.val() === "")
+                    gui.prop("disabled", true);
+                else gui.prop("disabled", false);
+            });
+
+            o_nhap_ten.keyup(function() {
+                if (o_nhap_ma.val() === "" || o_nhap_ten.val() === "")
+                    gui.prop("disabled", true);
+                else gui.prop("disabled", false);
+            });
+        }
+
+        disabledbutton();
+
+        function F1() {
+            let ten = $("#tensach").val();
+            let ma = $("#masach").val();
+            let nxb = $("#nxb").val();
+            let theloai = $("#theloai").val();
+            let kq = `<h2>Hiển thị thông tin</h2>
+                        <div class="info">Mã sách: ${ma}</div>
+                        <div class="info">Tên sách: ${ten}</div>
+                        <div class="info">Nhà xuất bản: ${nxb}</div>
+                        <div class="info">Thể loại: ${theloai}</div>`;
+            document.getElementById("footer").innerHTML = kq;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+            border: 2px solid blue;
+            padding: 8px;
+            margin: 150px 35%;
+        }
+        
+        button {
+            width: 32%;
+            margin-bottom: 10px;
+        }
+        
+        body input {
+            width: 96%;
+            outline: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="btn">
+            <button id="Xanh">Xanh</button>
+            <button id="Do">Đỏ</button>
+            <button id="Vang">Vàng</button>
+        </div>
+        <div id="body">
+            <input type="text" name="ten" id="ten" placeholder="nguyen van teo" onmousemove="big(this)" onmouseout="normal(this)" />
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        function big(x) {
+            x.style.color = "purple";
+            x.style.fontSize = "30px";
+        }
+
+        let Do = document.getElementById("Do");
+        let Xanh = document.getElementById("Xanh");
+        let Vang = document.getElementById("Vang");
+        let ten = document.getElementById("ten");
+        let temp = "";
+
+        Xanh.onclick = function() {
+            ten.style.color = "green";
+            temp = "green";
+        };
+
+        Do.onclick = function() {
+            ten.style.color = "red";
+            temp = "red";
+        };
+        Vang.onclick = function() {
+            ten.style.color = "yellow";
+            temp = "yellow";
+        };
+
+        function normal(x) {
+            x.style.color = temp;
+            x.style.fontSize = "16px";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+            border: 2px solid blue;
+            padding: 8px;
+            margin: 100px 40%;
+            background-color: grey;
+        }
+        
+        #btn {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .color {
+            flex: 1;
+        }
+        
+        .color button {
+            width: 97px;
+        }
+        
+        #xoa button {
+            width: 99%;
+            margin-bottom: 10px;
+        }
+        
+        #kq {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="btn">
+            <div class="color"><button id="Xanh">Xanh</button></div>
+            <div class="color"><button id="Do">Đỏ</button></div>
+            <div class="color"><button id="Vang">Vàng</button></div>
+        </div>
+        <div id="xoa"><button onclick="xoa()">Xóa văn bản</button></div>
+        <div id="kq" onmousemove="big(this)" onmouseout="normal(this)">
+            Lê Minh Học
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        function big(x) {
+            x.style.color = "pink";
+            x.style.fontSize = "30px";
+        }
+
+        let Do = document.getElementById("Do");
+        let Xanh = document.getElementById("Xanh");
+        let Vang = document.getElementById("Vang");
+        let kq = document.getElementById("kq");
+        let temp = "";
+
+        Xanh.onclick = function() {
+            kq.style.color = "green";
+            temp = "green";
+        };
+
+        Do.onclick = function() {
+            kq.style.color = "red";
+            temp = "red";
+        };
+        Vang.onclick = function() {
+            kq.style.color = "yellow";
+            temp = "yellow";
+        };
+
+        function normal(x) {
+            x.style.color = temp;
+            x.style.fontSize = "16px";
+        }
+
+        function xoa() {
+            let s = "";
+            document.getElementById("kq").innerHTML = s;
+        }
+    </script>
+</body>
+
+</html>
