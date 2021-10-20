@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    <div ng-app="" ng-init="names=[
+{name:'Jani',country:'Norway'},
+{name:'Hege',country:'Sweden'},
+{name:'Kai',country:'Denmark'}]">
+        <p>Looping with objects:</p>
+        <ul>
+            <li ng-repeat="x in names">{{ x.name + ', ' + x.country }}</li>
+        </ul>
+        <table border="1">
+            <tr>
+                <td>
+                    <ul>
+                        <li ng-repeat="x in names">{{"Name:"+ x.name }}</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li ng-repeat="x in names">
+                            {{"Country:"+ x.country }}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

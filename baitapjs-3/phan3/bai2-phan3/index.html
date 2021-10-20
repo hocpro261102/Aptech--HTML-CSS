@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+            padding: 8px;
+            border: 2px solid blue;
+        }
+        
+        .ele {
+            margin-bottom: 8px;
+            display: flex;
+        }
+        
+        .ele label {
+            flex: 1;
+        }
+        
+        .ele input {
+            flex: 2;
+        }
+        
+        #btn {
+            margin-left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <h1>Thông tin điện thoại</h1>
+        </div>
+        <hr />
+        <div id="content">
+            <form action="">
+                <div class="ele">
+                    <label for="">Mã số:</label>
+                    <input type="text" id="ma" />
+                </div>
+
+                <div class="ele">
+                    <label for="">Tên điện thoại:</label>
+                    <input type="text" id="ten" />
+                </div>
+
+                <div class="ele">
+                    <label for="">Số lượng:</label>
+                    <input type="number" id="sl" placeholder="0" min="1" />
+                </div>
+
+                <div class="ele">
+                    <label for="">Đơn giá:</label>
+                    <input type="number" id="gia" placeholder="0" min="1" />
+                </div>
+                <div id="btn">
+                    <input type="button" onclick="F1()" value="Gửi thông tin" id="gui" />
+                    <input type="reset" value="Xóa dữ liệu" />
+                </div>
+            </form>
+        </div>
+        <hr />
+        <div id="kq">
+            <h1>Hiển thị thông tin</h1>
+            <div class="info">Mã số:</div>
+            <div class="info">Tên điện thoại:</div>
+            <div class="info">Số lượng: 0</div>
+            <div class="info">Đơn giá: 0</div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        function disabledgui() {
+            let gui = $("#gui");
+            gui.prop("disabled", true);
+            let o_nhap_ma = $("#ma");
+            let o_nhap_ten = $("#ten");
+            let o_nhap_sl = $("#sl");
+            let o_nhap_gia = $("#gia");
+            o_nhap_ma.keyup(function() {
+                if (
+                    o_nhap_ma.val() === "" ||
+                    o_nhap_ten.val() === "" ||
+                    o_nhap_sl.val() === "" ||
+                    o_nhap_gia.val() === ""
+                )
+                    gui.prop("disabled", true);
+                else gui.prop("disabled", false);
+            });
+            o_nhap_ten.keyup(function() {
+                if (
+                    o_nhap_ma.val() === "" ||
+                    o_nhap_ten.val() === "" ||
+                    o_nhap_sl.val() === "" ||
+                    o_nhap_gia.val() === ""
+                )
+                    gui.prop("disabled", true);
+                else gui.prop("disabled", false);
+            });
+            o_nhap_sl.keyup(function() {
+                if (
+                    o_nhap_ma.val() === "" ||
+                    o_nhap_ten.val() === "" ||
+                    o_nhap_sl.val() === "" ||
+                    o_nhap_gia.val() === ""
+                )
+                    gui.prop("disabled", true);
+                else gui.prop("disabled", false);
+            });
+            o_nhap_gia.keyup(function() {
+                if (
+                    o_nhap_ma.val() === "" ||
+                    o_nhap_ten.val() === "" ||
+                    o_nhap_sl.val() === "" ||
+                    o_nhap_gia.val() === ""
+                )
+                    gui.prop("disabled", true);
+                else gui.prop("disabled", false);
+            });
+
+            // let name = $("#ten");
+            // let ma = $("#ma");
+            // let soluong = $("#sl");
+            // let giaban = $("#gia");
+            // let gui = $("#gui");
+            // gui.prop("disabled", true);
+            // let validation = function() {
+            //     name = $("#ten");
+            //     ma = $("#ma");
+            //     soluong = $("#sl");
+            //     giaban = $("#gia");
+            //     let result;
+            //     if (
+            //         name.val() != "" &&
+            //         ma.val() != "" &&
+            //         Number(soluong.val()) > 0 &&
+            //         Number(giaban.val()) > 0
+            //     )
+            //         result = true;
+            //     else result = false;
+            //     return result;
+            // };
+
+            // const addDisableClass = function() {
+            //     let validate = validation();
+            //     if (!validate) {
+            //         gui.prop("disabled", true);
+            //     } else {
+            //         gui.prop("disabled", false);
+            //     }
+            // };
+            // ten.keyup(addDisableClass);
+            // ma.keyup(addDisableClass);
+            // soluong.keyup(addDisableClass);
+            // giaban.keyup(addDisableClass);
+        }
+
+        disabledgui();
+
+        function F1() {
+            let ma = $("#ma").val();
+            let ten = $("#ten").val();
+            let sl = $("#sl").val();
+            let gia = $("#gia").val();
+            let kq = ` <h1>Hiển thị thông tin</h1>
+                        <div class="info">Mã số:  ${ma}</div>
+                        <div class="info">Tên điện thoại:  ${ten}</div>
+                        <div class="info">Số lượng:  ${sl}</div>
+                        <div class="info">Đơn giá:  ${gia}</div>`;
+            document.getElementById("kq").innerHTML = kq;
+        }
+    </script>
+</body>
+
+</html>

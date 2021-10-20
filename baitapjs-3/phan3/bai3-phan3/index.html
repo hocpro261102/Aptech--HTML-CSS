@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 250px;
+            border: 2px solid blue;
+            padding: 8px;
+        }
+        
+        #doimau {
+            display: flex;
+        }
+        
+        .mau {
+            flex: 1;
+        }
+        
+        .mau button {
+            width: 120px;
+        }
+        
+        #doi button {
+            width: 245px;
+            margin: 12px 0;
+        }
+        
+        .ele {
+            margin-bottom: 5px;
+        }
+        
+        .ele input {
+            font-size: 14px;
+            max-width: 165px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="doimau">
+            <div class="mau">
+                <button id="vang">Vàng</button>
+            </div>
+            <div class="mau">
+                <button id="xanhla">Xanh Lá</button>
+            </div>
+        </div>
+        <div id="doi">
+            <button id="doivb">Chuyển đổi văn bản</button>
+        </div>
+
+        <div class="ele">
+            <label for="">Văn bản 1</label>
+            <input type="text" id="vb1" onmousemove="big1(this)" onmouseout="normal1(this)" />
+        </div>
+
+        <div class="ele">
+            <label for="">Văn bản 2</label>
+            <input type="text" id="vb2" onmousemove="big2(this)" onmouseout="normal2(this)" />
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        function big1(x) {
+            x.style.color = "blue";
+            x.style.fontSize = "30px";
+        }
+
+        function big2(x) {
+            x.style.color = "red";
+            x.style.fontSize = "30px";
+        }
+
+        let vang = document.getElementById("vang");
+        let xanhla = document.getElementById("xanhla");
+        let doivb = document.getElementById("doivb");
+        let temp = "";
+        let vb1 = document.getElementById("vb1");
+        let vb2 = document.getElementById("vb2");
+
+        vang.onclick = function() {
+            vb1.style.color = "yellow";
+            vb2.style.color = "yellow";
+            temp = "yellow";
+        };
+
+        xanhla.onclick = function() {
+            vb1.style.color = "green";
+            vb2.style.color = "green";
+            temp = "green";
+        };
+
+        function normal1(x) {
+            x.style.color = temp;
+            x.style.fontSize = "14px";
+        }
+
+        function normal2(x) {
+            x.style.color = temp;
+            x.style.fontSize = "14px";
+        }
+
+        doivb.onclick = function() {
+            let vb1_vl = $("#vb1").val();
+            let vb2_vl = $("#vb2").val();
+
+            document.getElementById("vb1").value = vb2_vl;
+            document.getElementById("vb2").value = vb1_vl;
+        };
+    </script>
+</body>
+
+</html>

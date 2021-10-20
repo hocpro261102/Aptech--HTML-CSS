@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 300px;
+            border: 2px solid blue;
+            padding: 8px;
+        }
+        
+        .row {
+            display: flex;
+        }
+        
+        .sub_title {
+            flex: 1;
+        }
+        
+        .sub_info {
+            flex: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <h1>Thông tin điện thoại</h1>
+        </div>
+        <hr />
+        <div id="body"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        let dt_array = [{
+            maso: "S001",
+            ten: "Samsum Plus 100",
+            soluong: 10,
+            dongia: 1000,
+        }, {
+            maso: "N001",
+            ten: "Nokia 100",
+            soluong: 5,
+            dongia: 800,
+        }, ];
+
+        for (let i = 0; i < dt_array.length; i++) {
+            let dienthoai = dt_array[i];
+            let tong = (dienthoai.soluong * dienthoai.dongia).toFixed(0);
+
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+            tong = numberWithCommas(tong);
+            dienthoai.dongia = numberWithCommas(
+                dienthoai.dongia.toFixed(0)
+            );
+            let dt_details = `
+                <div id="dt">
+                    <div><h2>Thông tin điện thoại ${i + 1}</h2></div>
+                    <div class="row">
+                        <div class="sub_title">Mã số: </div>
+                        <div class="sub_info">${dienthoai.maso}</div>
+                    </div>
+                    <div class="row">
+                        <div class="sub_title">Tên điện thoại: </div>
+                        <div class="sub_info">${dienthoai.ten}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="sub_title">Số lượng: </div>
+                        <div class="sub_info">${dienthoai.soluong}</div>
+                    </div>
+                    <div class="row">
+                        <div class="sub_title">Đơn giá: </div>
+                        <div class="sub_info">${dienthoai.dongia}</div>
+                    </div>
+                    <div class="row">
+                        <div class="sub_title">Tổng tiền: </div>
+                        <div class="sub_info">${tong}</div>
+                    </div>
+                </div>
+            `;
+            $("#body").append(dt_details);
+        }
+    </script>
+</body>
+
+</html>
