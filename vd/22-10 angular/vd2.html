@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="namesCtrl">
+
+        <table>
+            <p>Type a letter</p>
+            <p><input type="text" ng-model="test"></p>
+            <tr ng-repeat="x in names | filter:test "><td>{{x}}</td></tr>
+        </table>
+        
+        </div>
+        
+        <script>
+        angular.module('myApp', []).controller('namesCtrl', function($scope) {
+            $scope.names = [
+                'Jani',
+                'Carl',
+                'Margareth',
+                'Hege' ,
+                'Joe',
+                'Gustav',
+                'Birgit',
+                'Mary',
+                'Kai'
+            ];
+        });
+        </script>
+</body>
+</html>

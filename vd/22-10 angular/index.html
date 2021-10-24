@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="customersCtrl">
+        <table>
+            <tr ng-repeat="x in data | orderBy:'name' | filter:'a' ">
+                <td>{{x.name}}</td>
+                <td>
+                    <button ng-click="F(x.id)">Test click</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        var url = "https://6166e0c813aa1d00170a6850.mockapi.io/sanpham";
+        app.controller("customersCtrl", function($scope, $http) {
+            $http.get(url).then(function(response) {
+                console.log(response.data);
+                $scope.data = response.data;
+            });
+            $scope.F = function(id) {
+                alert("Task id is" + id);
+            };
+        });
+    </script>
+</body>
+
+</html>
