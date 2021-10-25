@@ -1,0 +1,93 @@
+<html ng-app="myapp">
+<title>AngularJS Learning(Pagination with $limitTo filter)</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+    var myapp = angular.module("myapp", []);
+    myapp.filter("displayPageData", function() {
+        return function(input, start) {
+            start = +start; //parse to int
+            return input.slice(start);
+        };
+    });
+
+    var url = "https://60d50bb9943aa600177687b4.mockapi.io/api/v1/sanpham";
+    myapp.controller("myappcont", function($scope, $http, $filter) {
+        $scope.currentPage = 0;
+        $scope.searchText = "";
+        $scope.pageSize = 10;
+        $scope.data = [];
+
+        $http.get(url).then(function(response) {
+            $scope.data = response.data;
+            $scope.numberOfPages = function() {
+                var pageno =
+                    $filter("filter")($scope.data, $scope.searchText)
+                    .length / $scope.pageSize;
+                //alert(pageno);
+                if (pageno == 0) {
+                    pageno++;
+                }
+                return Math.ceil(pageno);
+            };
+
+            $scope.numberOfItems = function() {
+                return $filter("filter")($scope.data, $scope.searchText)
+                    .length;
+            };
+        });
+    });
+</script>
+
+<body ng-controller="myappcont">
+    <h2>Student List</h2>
+    <hr />
+    <table border="1" style="width: 60%">
+        <caption>
+            Search :
+            <input type="text" placeholder="Enter to search record" ng-model="searchText" /> No of Rows :
+            <input type="number" step="5" min="5" max="20" ng-model="pageSize" /> order By
+            <select ng-model="orderBy">
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                </select>
+        </caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Price</th>
+                <th>Avatar</th>
+                <th>CreatedAt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="r in data|filter:searchText|displayPageData:currentPage*pageSize|limitTo:pageSize | orderBy:orderBy ">
+                <td>{{r.name}}</td>
+                <td>{{r.phone}}</td>
+                <td>{{(r.price |number:2) +' VND '}}</td>
+                <td><img src="{{r.avatar}}" /></td>
+                <td>{{r.createdAt | date:'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="60%">
+        <tr>
+            <th width="10%">
+                <button alignment="left" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                        Previous
+                    </button>
+            </th>
+            <th width="80%">
+                {{currentPage+1}} / {{numberOfPages()| number:0}}
+            </th>
+            <th width="10%">
+                <button alignment="left" ng-disabled="currentPage >= numberOfItems()/pageSize-1" ng-click="currentPage=currentPage+1">
+                        Next
+                    </button>
+            </th>
+        </tr>
+    </table>
+    <hr />
+</body>
+
+</html>
