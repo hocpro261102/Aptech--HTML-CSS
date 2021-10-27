@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="sp">Lorem ipsum dolor sit.</div>
+        <div class="sp">Cupiditate, repellat accusamus. Libero.</div>
+        <div class="sp">Error voluptates voluptate a.</div>
+        <p >Nulla veritatis exercitationem assumenda!</p>
+        <div class="sp">Velit repellat accusamus odio!</div>
+        
+    </div>
+    <script>
+        $("div.sp").css("background", "red");
+        $("div.sp").click(function(){
+            alert($(this).html());
+        });
+    </script>
+</body>
+
+</html>

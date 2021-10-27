@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button{
+            margin-top: 5px;
+            background-color: #73FCFD;
+            outline: none;
+            border-radius: 5px;
+            width: 100px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        button:hover{
+            background-color: #75cece;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <h2>Top 5 món ưa thích của bạn</h2>  
+    <div id="id1">
+        <div class="ele">1.Bún đậu mắm tôm</div>
+        <div class="ele">2.Trứng vịt lộn</div>
+        <div class="ele">3.Tôm hùm</div>
+        <div class="ele">4.Cua </div>
+        <div class="ele">5.Bánh cuốn</div>
+    </div>
+    <button>Đổi món </button>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var s = `<div class="ele">1.Món 1</div>
+                            <div class="ele">2.Món 2</div>
+                            <div class="ele">3.Món 3</div>
+                            <div class="ele">4.Món 4 </div>
+                            <div class="ele">5.Món 5</div>`;
+                            $('#id1').html(s);
+            })
+        });
+    </script>
+</body>
+</html>
