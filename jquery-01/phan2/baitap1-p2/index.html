@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button{
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.356);
+            font-weight: 600;
+            margin-left: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        
+
+        .main{
+            background-color: yellow;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button id="id1">01</button>
+        <button id="id2">02</button>
+        <button id="id3">03</button>
+        <button id="id4">04</button>
+        <button id="id5">05</button>
+        <button id="id6">06</button>
+        <button id="id7">07</button>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("button:eq(0)").click(function(){
+               
+               $("#id1").toggleClass("main");
+            });
+
+            $("button:eq(1)").click(function(){
+               
+               $("#id2").toggleClass("main");
+            });
+
+            $("button:eq(2)").click(function(){
+               
+               $("#id3").toggleClass("main");
+            });
+
+            $("button:eq(3)").click(function(){
+               
+               $("#id4").toggleClass("main");
+            });
+
+            $("button:eq(4)").click(function(){
+               
+               $("#id5").toggleClass("main");
+            });
+
+            $("button:eq(5)").click(function(){
+               
+               $("#id6").toggleClass("main");
+            });
+
+            $("button:eq(6)").click(function(){
+               
+               $("#id7").toggleClass("main");
+            });
+
+           
+
+        });
+    </script>
+</body>
+
+</html>

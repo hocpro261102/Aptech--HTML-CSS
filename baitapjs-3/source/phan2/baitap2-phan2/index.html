@@ -115,7 +115,11 @@
         function F1() {
             let ten = $("#tensach").val();
             let ma = $("#masach").val();
-            let nxb = $("#nxb").val();
+            let nxb = "";
+            let checkbox_nxb = document.getElementsByName("nxb");
+            for (var i = 0; i < checkbox_nxb.length; i++)
+                if (checkbox_nxb[i].checked === true)
+                    nxb += checkbox_nxb[i].value;
             let theloai = $("#theloai").val();
             let kq = `<h2>Hiển thị thông tin</h2>
                         <div class="info">Mã sách: ${ma}</div>

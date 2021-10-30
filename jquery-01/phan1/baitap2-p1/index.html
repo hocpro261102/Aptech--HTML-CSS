@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+          button{
+            margin-top: 5px;
+            background-color: #73FCFD;
+            outline: none;
+            border-radius: 5px;
+            width: 150px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        button:hover{
+            background-color: #75cece;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bài 2</h1>
+    <ol id="id1">
+        <li>Thẻ 1</li>
+        <li>Thẻ 2</li>
+        <li>Thẻ 3</li>
+        <li>Thẻ 4</li>
+    </ol>
+    <input type="text" id="n">
+    <div class="btn">
+        <button id="btn1">Thêm vào cuối danh sách</button>
+    </div>
+    <div class="btn">
+        <button id="btn2">Thêm vào đầu danh sách</button>
+    </div>
+    <div class="btn">
+        <button id="btn3">Xóa thẻ cuối danh sách</button>
+    </div>
+    <div class="btn">
+        <button id="btn4">Xóa thẻ đầu danh sách</button>
+    </div>
+    <script>
+        $(document).ready(function() {
+
+            $("#btn1").click(function() {
+                let s = '<li>' + $('#n').val() + '</li>';
+                $('#id1').html($('#id1').html() + s );
+            });
+
+            $("#btn2").click(function() {
+                let s = '<li>' + $('#n').val() + '</li>';
+                $('#id1').html( s+  $('#id1').html()  );
+            });
+            
+
+            $("#btn3").click(function() {
+            $("#id1 li:last").remove();
+            });
+
+            $("#btn4").click(function() {
+                $("#id1 li:first").remove();
+            });
+        });
+    </script>
+</body>
+
+</html>

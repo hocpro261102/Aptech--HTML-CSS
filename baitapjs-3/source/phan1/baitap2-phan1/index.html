@@ -112,12 +112,19 @@
 
         function F1() {
             let ten = $("#ten").val();
-            let gt = $("#gt").val();
+            let gt = "";
+            var checkbox_gt = document.getElementsByName("gt");
+            for (var i = 0; i < checkbox_gt.length; i++) {
+                if (checkbox_gt[i].checked === true) {
+                    gt += checkbox_gt[i].value;
+                }
+            }
+
             let ngoaingu = "";
-            var checkbox = document.getElementsByName("ngoaingu");
-            for (var i = 0; i < checkbox.length; i++) {
-                if (checkbox[i].checked === true) {
-                    ngoaingu += checkbox[i].value + " ";
+            var checkbox_ngoaingu = document.getElementsByName("ngoaingu");
+            for (var i = 0; i < checkbox_ngoaingu.length; i++) {
+                if (checkbox_ngoaingu[i].checked === true) {
+                    ngoaingu += checkbox_ngoaingu[i].value + " ";
                 }
             }
             let dantoc = $("#dantoc").val();
