@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+
+        
+        .btn{
+            width: 100%;
+            min-height: 60px;
+            background-color: #f7f7f779;
+            border: 1px solid rgba(0, 0, 0, 0.199);
+               
+        }
+
+        h5{
+            color: blue;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        h5:hover{
+            color: rgb(10, 10, 165);
+
+
+        }
+
+        .nd{
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.199);
+
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="btn" ><h5 id="tab1">Tab #1</h5></div>
+        <div class="nd" id="nd1"></div>
+        
+        <div class="btn"><h5  id="tab2">Tab #2</h5></div>
+        <div class="nd" id="nd2"></div>
+
+        <div class="btn" ><h5 id="tab3">Tab #3</h5></div>
+        <div class="nd" id="nd3"></div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#nd1').hide();
+            $('#nd2').hide();
+            $('#nd3').hide();
+            
+            $('#tab1').click(function(){
+                let s = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ut odit deleniti sunt labore consequuntur. Magnam ducimus, quis veniam tempore corrupti nobis explicabo possimus saepe dolore quas nemo dolor deleniti earum labore nam atque dolorum non consectetur ipsam tempora nulla.'
+                $('#nd1').html(s).toggle();
+                $('#nd2').hide();
+                $('#nd3').hide();
+            });
+
+            $('#tab2').click(function(){
+                let s = 'Nội dung tab2'
+                $('#nd2').html(s).toggle();
+                $('#nd1').hide();
+                $('#nd3').hide();
+            });
+
+            $('#tab3').click(function(){
+                let s = 'Nội dung tab3'
+                $('#nd3').html(s).toggle();
+                $('#nd2').hide();
+                $('#nd1').hide();
+            });
+        });
+    </script>
+</body>
+</html>

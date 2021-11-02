@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>CRUD category</h1>
+    <form id="frm1">
+        ID: <input type="text" id="id" name="id" readonly /> <br /> Name <input type="text" id="name" name="name" />
+        <input type="text" id="action" value="create" />
+        <input type="button" id="btn" value="Them" />
+    </form>
+
+    <hr />
+    <div id="data"></div>
+    <script>
+        var url =
+            "https://6166e0c813aa1d00170a6850.mockapi.io/alo";
+        $(document).ready(function() {
+            //load data
+            $.ajax({
+                url: url,
+                // type:'GET',
+                // data:'',
+                success: function(dataReturn) {
+                    // console.log(dataReturn);
+                    $.each(dataReturn, function(k, v) {
+                        //k: get key-chi so trong mang:0,1,2
+                        //v: get value. dataReturn[k]
+                        console.log(k, v);
+                        let t = `<div id='id_${v.id}'><span> ${v.id} - ${v.name}</span>
+                            <input type='button' value='Edit' onClick='fLoadDetail(${v.id})'>
+                            <input type="button" value="Delete" onclick="fRemove(${v.id})">
+                            </div>`;
+                        $("#data").append(t);
+                    });
+                },
+            });
+
+            //Create ====================
+            $("input#btn").click(function() {
+                if ($("#action").val() == "create") fCreate();
+                if ($("#action").val() == "update") fUpdate();
+            });
+        });
+        //-------------------------------------------------------
+        function fCreate() {
+            //let data ={id: $('#frm1 #id').val(), name:$('#frm1 #name').val() };
+            let data = $("#frm1").serializeArray();
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                success: function(DataReturn) {
+                    console.log(DataReturn);
+                    $("#data").append(
+                        `<div>${DataReturn.id}-${DataReturn.name} </div>`
+                    );
+                },
+            });
+        }
+        //-------------------------------------------------------
+        function fUpdate() {
+            let data = $("#frm1").serializeArray();
+            let id = $("#frm1 #id").val();
+            $.ajax({
+                url: url + "/" + $("#frm1 #id").val(),
+                data: data,
+                type: "PUT",
+                success: function(DataReturn) {
+                    console.log(DataReturn);
+                    $("#action").val("create");
+                    $("#btn").val("Them moi");
+                    $("#frm1 #id").val("");
+                    $("#frm1 #name").val("");
+                    //lay ket qua tra ve, update len dong co id xac dinh
+                    // $('#data #id_1 span').html('hi');
+                    let element = "#data #id_" + id + " span";
+                    alert(element);
+                    $(element).html(`${DataReturn.id}-${DataReturn.name}`);
+                },
+            });
+        }
+
+        function fLoadDetail(id) {
+            $.ajax({
+                url: url + "/" + id,
+                success: function(DataReturn) {
+                    console.log(DataReturn);
+                    $("#frm1 #id").val(DataReturn.id);
+                    $("#frm1 #name").val(DataReturn.name);
+                    $("#action").val("update");
+                    $("#btn").val("Luu sua");
+                },
+            });
+        }
+
+        function fRemove(id) {
+            // let id = $("#frm1 #id").val();
+
+            $.ajax({
+                url: url + "/" + id,
+                // data: data,
+                type: "DELETE",
+                success: function(DataReturn) {
+                    
+                    let ele= "#data #id_" + id 
+                    $(ele).remove();
+                },
+            });
+        }
+    </script>
+</body>
+
+</html>

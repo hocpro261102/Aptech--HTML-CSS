@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
+</script>
+ 
+<style>
+ 
+ * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+ 
+    #container {
+      background-color: #008083;
+      height: 50px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+ 
+    .container-1 {
+      color: white;
+      display: inline-block;
+      width: 19.7%;
+      font-size: 20px;
+      height: 100%;
+      text-align: center;
+      padding-top: 11px;
+    }
+ 
+    .container-1:hover {
+      cursor: pointer;
+      background-color: #008001;
+    }
+ 
+    #chinh {
+      position: relative;
+    }
+ 
+    #chinh:hover #phu {
+      display: block;
+    }
+ 
+    #phu {
+      color: white;
+      position: absolute;
+      list-style-type: none;
+      width: 302.59px;
+      margin-top: 16px;
+      background-color: #008083;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.199); */
+      /* display: none; */
+    }
+ 
+    #phu li {
+      height: 50px;
+      padding-top: 12px;
+      display: block;
+    }
+ 
+    #phu li:hover {
+      cursor: pointer;
+      background-color: #008001;
+    }
+ 
+    #phu-1 {
+      position: absolute;
+      background-color: #008083;
+      margin-left: 303px;
+      width: 303px;
+      margin-top: -35.2px;
+    }
+ 
+    #chinh-1 {
+      position: relative;
+    }
+ 
+    .bam {
+      background-color: #008001;
+    }
+ 
+ 
+</style>
+ 
+</head>
+<body>
+ 
+<div id="container">
+  <div class="container-1">Home</div>
+  <div class="container-1">About</div>
+  <div class="container-1" id="chinh">
+    Tutorial
+  </div>
+      <ul id="phu">
+      <li>Thủ thuật</li>
+      <li>Kiến thức</li>
+      <li id="chinh-1">
+        Đồ họa
+        <ul id="phu-1">
+          <li>Audition</li>
+          <li>Illustrater</li>
+          <li>Photoshop</li>
+          <li>After Effect</li>
+          <li>Premiere</li>
+        </ul>
+      </li>
+      <li>Lập trình</li>
+    </ul>
+  <div class="container-1" id="test">Contact</div>
+  <div class="container-1">Login</div>
+</div>
+ 
+<script>
+  $(document).ready(function(){
+  $('#phu').hide()
+ 
+    $('#chinh').click(function(){
+        $(this).addClass("bam");
+            $('#phu-1').hide()
+          $('#phu').toggle()
+ 
+        $("#chinh-1").click(function(){
+           $('#phu-1').toggle()
+        });
+      });
+ 
+ 
+  })
+</script>
+ 
+</body>
+</html>

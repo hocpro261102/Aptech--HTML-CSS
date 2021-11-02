@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Thêm sửa xóa</h1>
+    <form action="" id="frm1">
+        ID: <input type="text" id="id" name="id" readonly /> <br /> Name <input type="text" id="name" name="name" />
+        <input type="text" id="action" value="create" />
+        <input type="button" value="Them" id="btn" />
+    </form>
+    <hr />
+    <div id="data"></div>
+    <span></span>
+
+    <script>
+        var url = "https://6166e0c813aa1d00170a6850.mockapi.io/alo";
+        $(document).ready(function() {
+            $.ajax({
+                url: url,
+                success: function(dataReturn) {
+                    $.each(dataReturn, function(k, v) {
+                        // k : get key-chỉ số trong mảng
+                        // v: get value. dataReturn[k]
+                        // console.log(k, v);
+                        let t = `<div id='id_${v.id}'> <span>${v.id} - ${v.name}</span>
+                                            <input type="button" value="Edit" onClick='fLoadDetail(${v.id})'/>
+                                            <input type="button" value="Delete" onclick="fRemove(${v.id})">
+                                            </div>`;
+
+                        $("#data").append(t);
+                    });
+                },
+            });
+
+            $("input#btn").click(function() {
+                if ($("#action").val() == "create") fCreate();
+                if ($("#action").val() == "update") fUpdate();
+            });
+
+            function fCreate() {
+                // alert('Them');
+                // let data = {id: $('#frm1 #id').val(), name: $('#frm1 #name').val()};
+                let data = $("#frm1").serializeArray();
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: "POST",
+                    success: function(dataReturn) {
+                        $("#data").append(
+                            `<div "><span>${dataReturn.id} - ${dataReturn.name}</span></div>`
+                        );
+                    },
+                });
+            }
+        });
+
+        function fUpdate() {
+            let data = $("#frm1").serializeArray();
+            let id = $("#frm1 #id").val();
+            $.ajax({
+                url: url + "/" + $("#frm1 #id").val(),
+                data: data,
+                type: "PUT",
+                success: function(DataReturn) {
+                    console.log(DataReturn);
+                    $("#action").val("create");
+                    $("#btn").val("Them moi");
+                    $("#frm1 #id").val("");
+                    $("#frm1 #name").val("");
+                    //lay ket qua tra ve, update len dong co id xac dinh
+                    // $('#data #id_1 span').html('hi');
+                    let element = "#data #id_" + id + " span";
+                    alert(element);
+                    $(element).html(
+                        ` ${DataReturn.id} - ${DataReturn.name}`
+                    );
+                },
+            });
+        }
+
+        function fLoadDetail(id) {
+            $.ajax({
+                url: url + "/" + id,
+
+                success: function(dataReturn) {
+                    $("#frm1 #id").val(dataReturn.id);
+                    $("#frm1 #name").val(dataReturn.name);
+                    $("#action").val("update");
+                    $("#btn").val("Luusua");
+                },
+            });
+        }
+
+        function fRemove(id) {
+            $.ajax({
+                url: url + "/" + id,
+                // data: data,
+                type: "DELETE",
+                success: function(DataReturn) {
+                    confirm("Bạn có chắc chắn muốn xoá ?");
+                    $("#action").val("remove");
+                    $("#btn").val("Xoá");
+                    let ele = "#data #id_" + id;
+                    $(ele).remove();
+                },
+            });
+        }
+    </script>
+</body>
+
+</html>
