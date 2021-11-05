@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        #container {
+            height: 720px;
+            background-color: #70BF54;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        #loginForm {
+            width: 370px;
+            height: 320px;
+            background-color: white;
+            text-align: center;
+            margin-top: 150px;
+            box-shadow: 0 0 10px rgba( 0, 0, 0, 0.6);
+            padding: 45px;
+        }
+        
+        i {
+            color: rgb(206, 6, 6);
+        }
+        
+        input.loginInput {
+            width: 280px;
+            min-height: 45px;
+            margin-top: 15px;
+            background-color: #F2F2F2;
+            border: none;
+            outline: none;
+            padding: 5px 0;
+            padding-left: 10px;
+            font-size: 16px;
+            color: black;
+            font-style: unset;
+        }
+        
+        #login {
+            background-color: #00B242;
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 15px 30px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        #login:hover {
+            cursor: pointer;
+            background-color: #0e8b3c;
+        }
+        
+        #create {
+            margin-top: 15px;
+        }
+        
+        #create label {
+            color: rgba(0, 0, 0, 0.664);
+        }
+        
+        #create a {
+            text-decoration: none;
+            color: rgb(29, 29, 161);
+        }
+        
+        #result {
+            margin-top: 10px;
+            font-size: 13px;
+            font-style: italic;
+            color: rgb(206, 6, 6);
+            text-align: left;
+        }
+        
+        #result .success-login {
+            color: #00B242;
+        }
+        
+        .error {
+            font-size: 13px;
+            font-style: italic;
+            color: rgb(206, 6, 6);
+            display: block;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form class="cmxform" id="loginForm" method="get" action="">
+            <div>
+                <input id="username" class="loginInput" name="username" placeholder="Username" required>
+            </div>
+            <div>
+                <input id="password" class="loginInput" type="password" name="password" placeholder="Password" required>
+            </div>
+            <button id="login" type="submit">Login</button>
+            <div id="result"></div>
+            <div id="create">
+                <label for="">Not registered?</label>
+                <a href="">Create an account</a>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+    <script>
+        //validation config option
+        $("#loginForm").validate({
+            messages: {
+                username: "<i class='fas fa-exclamation-triangle'></i> Enter your username",
+                password: "<i class='fas fa-exclamation-triangle'></i> Enter your password",
+            }
+        });
+
+        $("#login").click(function(e) {
+            e.preventDefault();
+            $("#loginForm").validate();
+            if ($("#loginForm").valid()) {
+                checkLogin();
+            }
+        })
+
+        function checkLogin() {
+            let user = $('#username').val();
+            let pass = $('#password').val();
+            if (user === 'leminhhoc' && pass === '261102') {
+                $('#result').html('<span class="success-login">Đăng nhập thành công</span>')
+            } else {
+                $('#result').html('Đăng nhập thất bại')
+            }
+        }
+    </script>
+</body>
+
+</html>
